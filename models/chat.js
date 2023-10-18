@@ -4,14 +4,14 @@ const mongoose = requiere("mongoose");
 const chatSchema = new mongoose.Schema(
     {
         chat: string,
-        user: {     // 이름
+        user: {
             id:{
-                type: mongoose.Schema.Types.ObjectId,
+                type: mongoose.Schema.ObjectId,
                 ref: "User",
             },
             name: string,
         },
     },
-    { timestamps: true },
+    { timestamp: true },
 );
-module.exports = mongoose.model("chat".userSchema);
+module.exports = mongoose.model("Chat".chatSchema);
