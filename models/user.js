@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: [true, "User must type name"],
-		unique: ture,
+		unique: true,
 	},
 	token: {
 		type: String,
