@@ -8,9 +8,9 @@ module.exports = function (io){
 		console.log("client is connected : " + socket.id);		
 
 		socket.on("login", async (userName, cb) => {
+			console.log("backend login : ", userName);
 			// 유저정보를 저장
 			try{
-				console.log("userController : ", userController);
 				const user = await userController.saveUser(userName, socket.id);
 				cb({ ok:true, data: user });
 			}catch(error){

@@ -2,9 +2,16 @@ const User = require("../Models/user");
 const userController = {};
 
 userController.saveUser=async(userName, sid)=>{
-	// 이미 있는 유저인지 확인
+	// TODO: DELL
+	console.log("saveUser params: ", userName, sid);
+	// check declare User 
+	console.log("saveUser User: ", User || "cant find User");
+	
 	let user = await User.findOne({name: userName});
-	// 없다면 새로 유저정보 만들기
+
+	// check declare User 
+	console.log("saveUser user before check new user: ", user || "cant find user");
+	
 	if(!user){
 		user = new User({
 			name: userName,
@@ -12,9 +19,15 @@ userController.saveUser=async(userName, sid)=>{
 			online: true,
 		});
 	}
-	// 이미 있는 유저라면 연결정보 token값만 바꿔주지
+	
 	user.token = sid;
 	user.online = true;
+
+	// check declare User 
+	console.log("saveUser user after check new user: ", user || "cant find user");
+
+	await user.save();
+	return user;
 }
 
 module.exports = userController;

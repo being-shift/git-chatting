@@ -12,7 +12,6 @@ const io = new Server(httpServer, {		// 패킷 BUS: 3000번으로 27017과 통�
 
 // 기능분리
 require("./utils/io")(io);
-// web <-> socket 연결
-httpServer.listen(process.env.PORT,		// 5001 -> 3000 <-> 27017 
+httpServer.listen(process.env.PORT,	
 	() => { console.log("server listening on port", process.env.PORT); }
 );
