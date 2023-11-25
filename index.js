@@ -1,10 +1,10 @@
 // 웹서버 실행(setting은 app.js)
-const {createServer} = require("http");	// protocol 제약
-const app = require("./app");			// 환경변수,connection셋팅 등
+const {createServer} = require("http");	
+const app = require("./app");			
 const {Server} = require("socket.io");	
 require('dotenv').config();
 const httpServer = createServer(app);	
-const io = new Server(httpServer, {		// 패킷 BUS: 3000번으로 27017과 통신
+const io = new Server(httpServer, {		
 	cors: {
 		origin: "http://localhost:3000",
 	}

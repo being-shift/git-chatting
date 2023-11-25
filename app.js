@@ -8,11 +8,10 @@ app.use(cors());
 mongoose.connect(process.env.DB, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
-}).then(() => console.log("connected to database"));
+}).then(() => console.log(new Date(), "connected to database"));
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', ()=>{ console.log('mongo db connection OK'); });
-
+db.on('error', console.error.bind(console, new Date() + 'connection error'));
+db.once('open', ()=>{ console.log(new Date(), 'mongo db connection OK'); });
 
 module.exports = app;

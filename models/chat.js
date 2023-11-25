@@ -1,17 +1,18 @@
-const mongoose = requiere("mongoose");
+const mongoose = require("mongoose");
 
 // 스키마 추가
 const chatSchema = new mongoose.Schema(
     {
-        chat: string,
+        chat: String,
         user: {
             id:{
                 type: mongoose.Schema.ObjectId,
                 ref: "User",
             },
-            name: string,
+            name: String,
         },
     },
-    { timestamp: true },
+    { timestamp: true }
 );
-module.exports = mongoose.model("Chat".chatSchema);
+
+module.exports = mongoose.model("Chat",chatSchema);
